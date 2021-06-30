@@ -1,32 +1,47 @@
-"use strict";
-//---------------------------Užduotis Nr.1----------------------------//
+"use strict"
+
+console.log("//---------------------Užduotis Nr.1----------------------//")
 class Namas {
-    constructor(miestas, pastatymoData, adresas, laiptiniuSkaicius, butuSkaicius){
+    constructor(miestas, pastatymoData, adresas, laiptiniuSkaicius, butai){
     this.miestas = miestas;
     this.pastatymoData = pastatymoData;
     this.adresas = adresas;
     this.laiptiniuSkaicius = laiptiniuSkaicius;
-    this.butuSkaicius = butuSkaicius;
-    
-}
-    static bendrasButuSkaicius(a) {
-        let bbs = 0;
-        for (let i in a) {
-            bbs = bbs + a[i];
-        }
-        return bbs;
+    this.butai = butai;
+    }
+
+    static butuPildymas(min, max) {
+
+        return Math.floor((Math.random() * (max - min + 1)) + min);
     }
 }
 
+let laiptiniuSkaicius = ["laiptine1", "laiptine2", "laiptine3",'laiptine4', 'laiptine5'];
+
+let laiptiniuSkIlgis = laiptiniuSkaicius.length;
+
+let atsitiktinisSk = Namas.butuPildymas(1, 100);
+
+let butai = [];
+for (let i = 0; i< laiptiniuSkIlgis; i++) {
+    butai.push(Namas.butuPildymas(1, 100));
+}
+
+let bendrasButuSk = 0;
+
+for (let i = 0; i < butai.length; i++) {
+    bendrasButuSk += butai[i];
+}
+
 let pastatymoData = new Date().getFullYear();
-let laiptiniuSkaicius = [1, 2, 3, 4];
-let butuSkaicius = [15, 20, 20, 20];
-let namas1 = new Namas('Vilnius', pastatymoData, 'Pavilnionių g.', laiptiniuSkaicius, butuSkaicius);
+
+let namas1 = new Namas('Vilnius', pastatymoData, 'Pavilnionių g.', laiptiniuSkaicius, butai);
 
 console.log(namas1);
-console.log("Bendras butų skaičius: " + Namas.bendrasButuSkaicius(butuSkaicius));
+console.log("Bendras butų skaičius: " + bendrasButuSk);
 
-//---------------------------Užduotis Nr.2----------------------------//
+
+console.log("//---------------------Užduotis Nr.2----------------------//")
 
 class Butas {
     constructor(numeris, kambariuSkaicius, gyventojuSkaiciusBute) {
@@ -43,29 +58,25 @@ let xata = new Butas(13, 3, 4);
 
 xata.info();
 
-//---------------------------Užduotis Nr.3----------------------------//
+
+console.log("//---------------------Užduotis Nr.3----------------------//")
 
 
 let masyvasNamas = [];
-class Namu {
-    constructor(miestas1, adresas1, laiptiniuSkaicius1, butuSkaicius1, aukstuSkaicius){
-    this.miestas1 = miestas1;
-    this.adresas1 = adresas1;
-    this.laiptiniuSkaicius1 = laiptiniuSkaicius1;
-    this.butuSkaicius1 = butuSkaicius1;
-    this.aukstuSkaicius = aukstuSkaicius;
-    }
-}
-
-masyvasNamas.push(new Namu('Vilnius', 'Pavilnionių', 1, 35, 7));
-masyvasNamas.push(new Namu('Šiauliai', 'Gegužių', 6,[15,15,15,15,15,15], 5));
-masyvasNamas.push(new Namu('Klaipėda', 'Budelkiemio', 5,[28,28,28,28,28,28], 7));
-masyvasNamas.push(new Namu('Panevezys', 'Žvaigždžių', 4,[15,15,15,15,15,15], 5));
-masyvasNamas.push(new Namu('Vilnius', 'Perkunkiemio', 4,[28,28,28,28,28,28], 7));
-
-//---------------------------Užduotis Nr.4----------------------------//
 
 
-console.log(masyvasNamas)
+masyvasNamas.push(new Namas('Vilnius', pastatymoData, 'Pavilnionių', [1], 35,));
+masyvasNamas.push(new Namas('Šiauliai', pastatymoData, 'Gegužių', [1,2,3,4,5,6], 15));
+masyvasNamas.push(new Namas('Klaipėda', pastatymoData, 'Budelkiemio', [1,2,3,4,5], 28));
+masyvasNamas.push(new Namas('Panevezys', pastatymoData, 'Žvaigždžių', [1,2,3,4], 15));
+masyvasNamas.push(new Namas('Vilnius', pastatymoData, 'Perkunkiemio', [1,2,3,4], 28));
 
-//---------------------------Papildoma užduotis----------------------------//
+console.log("Sukurtas masyvasNamas su 5 objektais pagal klase Namas")
+
+console.log("//---------------------Užduotis Nr.4----------------------//")
+
+console.log(masyvasNamas);
+
+console.log("//------------------Papildoma užduotis--------------------//")
+
+console.log(masyvasNamas[4[Namas.laiptiniuSkaicius]]);
