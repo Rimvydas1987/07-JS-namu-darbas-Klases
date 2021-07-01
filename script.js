@@ -79,4 +79,3 @@ console.log(masyvasNamas);
 
 console.log("//------------------Papildoma užduotis--------------------//")
 
-console.log(masyvasNamas[4[Namas.laiptiniuSkaicius]]);
